@@ -4,78 +4,157 @@
     font-family: 'Poppins', Geneva, Verdana, sans-serif;
     box-sizing: border-box;
 } 
-body {
-    background: #7DCDBC;
-}  
-.card {
-    width: 90%;
-    max-width: 470px;
-    background: linear-gradient(135deg, #00feba, #5b548a);
-    color: #fff;
-    margin: 100px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
-    text-align: center;
+:root {
+    --white: #ffffff;
+    --off-white: #e5e5e5;
+    --transp-white-1: rgba(255,255,255,0.25);
+    --transp-white-2: rgba(255,255,255,0.1);
+    --blue-1: #62b8f5;
+    --blue-2: #4475ef;
+    --shadow: rgba(3,46,87,0.2);
 }
-.search {
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
+}  
+.wrapper {
+    font-size: 16px;
+    width: 90vw;
+    max-width: 28em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+.container {
     width: 100%;
-    display: flex;
+    background: var(--transp-white-2);
+    backdrop-filter: blur(10px);
+    padding: 3em 1.8em;
+    border: 2px solid var(--transp-white-2);
+    border-radius: 0.6em;
+    box-shadow: 0 1.8em 3.7em var(--shadow);
     align-items: center;
+    text-align: center;
     justify-content: space-between;
 }
-.search input {
-    border: 0;
-    outline: 0;
-    background: #ACDED4;
-    color:#FFFFFF;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 20px;
-    flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
+.shape {
+    position: absolute;
+    background-color: var(--transp-white-1);
+    backdrop-filter: blur(1.2em);
+    border-radius: 50%;
+}
+.shape-1 {
+    height: 13em;
+    width: 13em;
+    right: -6.5em;
+    top: 1.8em;
+}
+.shape-2 {
+    height: 11em;
+    width: 11em;
+    bottom: -3.7em;
+    left: -2.5em;
+}
+.search-container {
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    gap: 1.25em;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+.search-container input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--white);
+    padding: 0.7em;
+    font-size: 1em;
+    border-bottom: 2px solid var(--transp-white-1);
+    font-weight: 300;
+}
+.search-container input::placeholder {
+    color: var(--off-white);
+}
+.search-container input:focus {
+    border-color: var(--white);
+}
+.search-container button {
+    border: none;
+    outline: none;
+    background-color: var(--transp-white-1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--transp-white-2);
+}
+.search-container button::placeholder {
+    color: var(--transp-white-2);
+}
+.search-container button:hover {
+    border-color: var(--white);
+}
+.bi-search {
+    color: var(--white);
 }
 .weather-icon {
     margin-top: 30px;
     height: 200px;
     width: 270px;
 }
-.weather h1 {
-    font-size: 80px;
-    font-weight: 500;
+h1 {
+    font-size: 4.5em;
+    font-weight: 400;
+    color: var(--white);
 }
-.weather h2 {
-    font-size: 45px;
+h2 {
+    font-size: 1.5em;
     font-weight: 400;
     margin-top: -10px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+h4 {
+    font-size: 1.1em;
+    font-weight: 450;
+    margin-top: -20px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 2em;
+}
+h6 {
+    margin-top: -3px;
+    color: var(--white);
+    font-size: 0.8em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
 }
 .details {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+    padding: 0.2em 3em;
+    margin-top: 40px;
 }
-.col{
-    display: felx;
+.col {
+    display: flex;
     align-items: center;
     text-align: left;
-}
-.col img {
-    width: 40px;
-    margin-right: 10px;
+    color: var(--white);
 }
 .humidity, .wind {
-    font-size: 28px;
-    margin-top: -6px;
+    font-size: 1em;
+    font-weight: 430;
 }
-.weather {
-    display: none;
+.col img {
+    width: 35px;
+    margin-right: 10px;
 }
-.error {
-    text-align: left;
-    margin-left: 10px;
-    font-size: 14px;
-    margin-top: 10px;
-    display: none;
+.weather-icon {
+    margin-top: 0.5em;
+    width: 180px;
 }
