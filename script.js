@@ -5,6 +5,8 @@ let searchBox = document.querySelector(".search-container input");
 let searchBtn = document.querySelector(".search-container button");
 let result = document.getElementById("result");
 let weatherIcon = document.getElementById("weather");
+//change background
+let body = document.body;
 
 //Function to fetch weather details form api
 let getWeather = () => {
@@ -12,7 +14,7 @@ let getWeather = () => {
 
     //If input field empty
     if (cityValue.length == 0) {
-        result.innerHTML = `<h4>Please enter a city name</h4>`;
+        result.innerHTML = `<h3>Please enter a city name</h3>`;
     }
     //If input field not empty
     else {
@@ -22,27 +24,41 @@ let getWeather = () => {
             .then((resp) => resp.json())
             //If city name is valid
             .then((data) => {
-                console.log(data);
 
                 if (data.weather[0].main == "Clear") {
                     weatherIcon.innerHTML = `
                     <img src="images/clear.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #62b8f5, #4475ef)`;
                 }
                 else if (data.weather[0].main == "Rain") {
                     weatherIcon.innerHTML = `
                     <img src="images/rain.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #A4C0D4, #2B3677)`;
                 }
                 else if (data.weather[0].main == "Drizzle") {
                     weatherIcon.innerHTML = `
                     <img src="images/drizzle.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #71B8EB, #5F6B87)`;
                 }
-                else if (data.weather[0].main == "Mist") {
+                else if (data.weather[0].main == "Clouds") {
                     weatherIcon.innerHTML = `
-                    <img src="images/mist.png" class="weather-icon">`;
+                    <img src="images/clouds.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #A4C0D4, #517EED)`;
+                }
+                else if (data.weather[0].main == "Thunderstorm") {
+                    weatherIcon.innerHTML = `
+                    <img src="images/thunderstorm.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #A4C0D4, #517EED)`;
+                }
+                else if (data.weather[0].main == "Snow") {
+                    weatherIcon.innerHTML = `
+                    <img src="images/snow.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #A4C0D4, #517EED)`;
                 }
                 else {
                     weatherIcon.innerHTML = `
-                    <img src="images/clouds.png" class="weather-icon">`;
+                    <img src="images/mist.png" class="weather-icon">`;
+                    body.style.background = `linear-gradient(135deg, #68A5D0, #405A9C)`;
                 }
 
                 result.innerHTML = `
@@ -69,7 +85,8 @@ let getWeather = () => {
             })
             //If city name is not valid
             .catch(() => {
-                result.innerHTML = `<h4>City not found</h4>`;
+                weatherIcon.innerHTML = `<img src="">`;
+                result.innerHTML = `<h3>City not found</h3>`;
             });
     }
 };

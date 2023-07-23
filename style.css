@@ -15,7 +15,8 @@
 }
 body {
     height: 100vh;
-    background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
+    background: linear-gradient(135deg, #62b8f5, #4475ef);
+    transition: background 5s linear;
 }  
 .wrapper {
     font-size: 16px;
@@ -57,9 +58,10 @@ body {
     left: -2.5em;
 }
 .search-container {
+    position: relative;
     font-size: 1em;
     display: grid;
-    grid-template-columns: 9fr 3fr;
+    grid-template-columns: 9fr auto;
     gap: 1.25em;
     align-items: center;
     text-align: center;
@@ -132,6 +134,15 @@ h6 {
     font-size: 0.8em;
     font-weight: 300;
     letter-spacing: 0.1em;
+}
+h3 {
+    margin-top: 8px;
+    font-size: 1.1em;
+    font-weight: 450;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 2em;
 }
 .details {
     display: flex;
