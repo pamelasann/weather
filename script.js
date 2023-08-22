@@ -1,19 +1,22 @@
 // Api Key from Open Weather
 const apiKey = "01a355210612ff0c5d932867b8ea72b0";
 
-let searchBox = document.querySelector(".search-container input");
+let searchInput = document.querySelector(".search-container input");
 let searchBtn = document.querySelector(".search-container button");
+let body = document.body;
 let result = document.getElementById("result");
 let weatherIcon = document.getElementById("weather");
-//change background
-let body = document.body;
+let title = document.querySelector(".title-pointer");
+let infoBtn = document.querySelector(".nav-wrapper button");
+let infoText = document.querySelector(".information-text");
 
 //Function to fetch weather details form api
 let getWeather = () => {
-    let cityValue = searchBox.value;
+    let cityValue = searchInput.value;
 
     //If input field empty
     if (cityValue.length == 0) {
+        weatherIcon.innerHTML = `<img src="">`;
         result.innerHTML = `<h3>Please enter a city name</h3>`;
     }
     //If input field not empty
@@ -48,12 +51,12 @@ let getWeather = () => {
                 else if (data.weather[0].main == "Thunderstorm") {
                     weatherIcon.innerHTML = `
                     <img src="images/thunderstorm.png" class="weather-icon">`;
-                    body.style.background = `linear-gradient(135deg, #A4C0D4, #517EED)`;
+                    body.style.background = `linear-gradient(135deg, #576E91, #29407B)`;
                 }
                 else if (data.weather[0].main == "Snow") {
                     weatherIcon.innerHTML = `
                     <img src="images/snow.png" class="weather-icon">`;
-                    body.style.background = `linear-gradient(135deg, #A4C0D4, #517EED)`;
+                    body.style.background = `linear-gradient(135deg, #BDC8D0, #6A93F8)`;
                 }
                 else {
                     weatherIcon.innerHTML = `
@@ -64,7 +67,7 @@ let getWeather = () => {
                 result.innerHTML = `
                     <h4>${data.weather[0].description}</h4>
                     <h1>${Math.round(data.main.temp)}°C</h1>
-                    <h2>${data.name}</h2>
+                    <h2>${data.name}, ${data.sys.country}</h2>
                     <div class="details">
                         <div class="col">
                             <img src="images/humidity.png">
@@ -90,6 +93,43 @@ let getWeather = () => {
             });
     }
 };
-searchBtn.addEventListener("click", getWeather);
+//Enter key function to trigger getWeather
+searchInput.addEventListener("keyup", function (event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        searchBtn.click();
+    }
+});
+//Title funtion, return to home
+let loadHome = () => {
+    location.reload();
+};
+//Show iformation function
+let showInfo = () => {
+    infoText.innerHTML = `
+        <h1>Welcome to Weather & Lofi</h1>
+        <p>Weather & Lofi lets you dive into the weather conditions all over the world while simultaneously enjoying and discovering new lofi music.</p>
+        <p>Appreciate the diverse shifts between various weather patterns around the globe, including snowy days, rainy spells, and bright, clear skies.</p>
+        <br>
+        <p><b>Note:</b> for the moment take advantage of the city name autocomplete by only selecting popular city names for more accurate results. Before long, the bugs will be fixed.
+        For more information, feel free to take a look over the repository.</p>
+        <br>
+        <p>Made with love by Pamela Sánchez <3</p>
+    `;  
+    document.addEventListener("click", (event) => {
+        let clickedInfoBtn = event.target;
+        do {
+            if(clickedInfoBtn == infoBtn) {
+                document.querySelector(".information-container").style.display = "block";
+                return;
+            }  
+            clickedInfoBtn = clickedInfoBtn.parentNode;            
+        } while (clickedInfoBtn);
+        document.querySelector(".information-container").style.display = "none";
+    });
+};
 
-//window.addEventListener("load", getWeather);
+searchBtn.addEventListener("click", getWeather);
+title.addEventListener("click", loadHome);
+infoBtn.addEventListener("click", showInfo);
+//window.addEventListener("load", showInfo);

@@ -12,12 +12,43 @@
     --blue-1: #62b8f5;
     --blue-2: #4475ef;
     --shadow: rgba(3,46,87,0.2);
+    --shadow--2: rgba(3,46,87,0.1);
 }
 body {
     height: 100vh;
     background: linear-gradient(135deg, #62b8f5, #4475ef);
-    transition: background 5s linear;
-}  
+} 
+.nav-wrapper {
+    display: flex;
+    position: relative;
+}
+.information-btn {
+    border: none;
+    display: flex;
+}
+.bi-info-circle {
+    color: var(--white);
+    background: transparent;
+    position: fixed;
+    cursor: pointer;
+    padding: 0.2em 0.6em;
+    font-size: 1.25em;
+}
+.title-container {
+    float: none;
+    position: absolute;
+    top: 1.4em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.title-pointer {
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 400;
+    letter-spacing: 0.17em;
+    font-style: italic;
+    color: var(--white);
+}
 .wrapper {
     font-size: 16px;
     width: 90vw;
@@ -44,6 +75,7 @@ body {
     background-color: var(--transp-white-1);
     backdrop-filter: blur(1.2em);
     border-radius: 50%;
+    filter: blur(1.5px);
 }
 .shape-1 {
     height: 13em;
@@ -83,6 +115,48 @@ body {
 .search-container input:focus {
     border-color: var(--white);
 }
+
+
+
+
+.pac-container {
+    border: none;
+    outline: none;
+    background: linear-gradient(135deg, var(--transp-white-2), var(--shadow--2));
+    backdrop-filter: blur(1em);
+    padding: 0.3em;
+    border-bottom-right-radius: 0.6em;
+    border-bottom-left-radius: 0.6em;
+}
+.pac-icon:selected {
+    color: yellow;
+}
+.pac-item {
+    border: none;
+    outline: none;
+    color: var(--off-white);
+    font-size: 1em;
+    font-weight: 300;
+}
+.pac-item:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+.pac-item-selected {
+    background-color:  rgba(255,255,255,0.25);
+}
+.pac-item-query {
+    color:#ffffff;
+    font-size: 1em;
+    font-weight: 300;
+}
+.pac-matched {
+    font-weight: 1000;
+}
+
+
+
+
+
 .search-container button {
     border: none;
     outline: none;
@@ -97,6 +171,7 @@ body {
 }
 .search-container button:hover {
     border-color: var(--white);
+    cursor: pointer;
 }
 .bi-search {
     color: var(--white);
@@ -168,4 +243,34 @@ h3 {
 .weather-icon {
     margin-top: 0.5em;
     width: 180px;
+}
+
+.information-container {
+    top: 20.3em;
+    left: 10.3em;
+    width: 100%;
+    max-width: 18em;
+    padding: 1.2em 1.2em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: var(--transp-white-1);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--transp-white-2);
+    border-radius: 0.6em;
+    box-shadow: 0 1.8em 3.7em var(--shadow);
+    align-items: center;
+    text-align: center;
+    display: none;
+}
+.information-text h1 {
+    font-size: 1.5em;
+    font-weight: 450;
+    color: var(--white);
+    padding-bottom: 0.5em;
+}
+.information-text p {
+    color: var(--white);
+    font-size: 0.8em;
+    font-weight: 350;
+    letter-spacing: 0.1em;
 }
