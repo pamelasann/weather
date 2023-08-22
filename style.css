@@ -115,10 +115,7 @@ body {
 .search-container input:focus {
     border-color: var(--white);
 }
-
-
-
-
+/* City name autocomplete container start */
 .pac-container {
     border: none;
     outline: none;
@@ -152,11 +149,7 @@ body {
 .pac-matched {
     font-weight: 1000;
 }
-
-
-
-
-
+/* City name autocomplete container finish */
 .search-container button {
     border: none;
     outline: none;
@@ -244,7 +237,6 @@ h3 {
     margin-top: 0.5em;
     width: 180px;
 }
-
 .information-container {
     top: 20.3em;
     left: 10.3em;
