@@ -1,5 +1,5 @@
 // Api Key from Open Weather
-const apiKey = "01a355210612ff0c5d932867b8ea72b0";
+const apiKey = ""; //delteled the apiKey for security reasons, if you want to replicate this code, generate a apiKey from google places api
 
 let searchInput = document.querySelector(".search-container input");
 let searchBtn = document.querySelector(".search-container button");
@@ -115,15 +115,15 @@ let showInfo = () => {
         For more information, feel free to take a look over the repository.</p>
         <br>
         <p>Made with love by Pamela Sánchez <3</p>
-    `;  
+    `;
     document.addEventListener("click", (event) => {
         let clickedInfoBtn = event.target;
         do {
-            if(clickedInfoBtn == infoBtn) {
+            if (clickedInfoBtn == infoBtn) {
                 document.querySelector(".information-container").style.display = "block";
                 return;
-            }  
-            clickedInfoBtn = clickedInfoBtn.parentNode;            
+            }
+            clickedInfoBtn = clickedInfoBtn.parentNode;
         } while (clickedInfoBtn);
         document.querySelector(".information-container").style.display = "none";
     });
