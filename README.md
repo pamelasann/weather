@@ -1,10 +1,10 @@
 # Weather & Lofi
-Weather & Lofi lets you search weather conditions all over the world while simultaneously listening and discovering new lofi music. The objective of this project was to develop a web application fully on JavaScript and get a notion of APIs implementing them.
+Weather & Lofi lets you search weather conditions all over the world while simultaneously listening and discovering new lofi music (soon to be added). The objective of this project was to develop a web application fully on JavaScript and and understanding of APIs.
 
-The application has implemented:
+The application has:
 - a build in city name autocomple using Google Places API
 - OpenWeather API to retrieve the weather data
-- and soon Spotify API to integrade background lofi music for a better UX
+- (and soon) Spotify API to integrade background lofi music for a better UX
 
 
 <img src="assets/search.png" width=750 height=400>
